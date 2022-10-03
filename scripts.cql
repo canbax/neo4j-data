@@ -13,5 +13,10 @@ YIELD file, source, format, nodes, relationships, properties, time, rows, batchS
 RETURN file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
 
 // read from CSV file
-USING PERIODIC COMMIT 1000 LOAD CSV FROM 'https://raw.githubusercontent.com/canbax/neo4j-data/main/movie-recommendations.csv' AS r
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/canbax/neo4j-data/main/movie-recommendations.csv' AS r
 return r limit 5
+
+// read nodes from CSV and write to database
+USING PERIODIC COMMIT 1000 
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/canbax/neo4j-data/main/all-nodes.csv' AS r
+
