@@ -14,10 +14,10 @@ CREATE CONSTRAINT ON (node:Person) ASSERT (node.tmdbId) IS UNIQUE;
 CREATE CONSTRAINT ON (node:User) ASSERT (node.userId) IS UNIQUE;
 
 // extra indexes for ID
-CREATE CONSTRAINT FOR (node:Movie) REQUIRE (node.id) IS UNIQUE;
-CREATE CONSTRAINT FOR (node:Genre) REQUIRE (node.id) IS UNIQUE;
-CREATE CONSTRAINT FOR (node:Person) REQUIRE (node.id) IS UNIQUE;
-CREATE CONSTRAINT FOR (node:User) REQUIRE (node.id) IS UNIQUE;
+CREATE CONSTRAINT ON (node:Movie) ASSERT (node.id) IS UNIQUE;
+CREATE CONSTRAINT ON (node:Genre) ASSERT (node.id) IS UNIQUE;
+CREATE CONSTRAINT ON (node:Person) ASSERT (node.id) IS UNIQUE;
+CREATE CONSTRAINT ON (node:User) ASSERT (node.id) IS UNIQUE;
 
 // export all nodes to a JSON
 MATCH (n)
